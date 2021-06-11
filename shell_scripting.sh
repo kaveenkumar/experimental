@@ -1,3 +1,5 @@
+var = 007
+
 stage=0
 
 if [ $stage -le 0 ]; then
