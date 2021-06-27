@@ -1,7 +1,9 @@
 pip help : guide
 pip help <command> : help for specific command
+pip install --upgrade pip : upgrade pip
 pip search <package> : searches pypi for package and returns name and info about package
-pip install <package> 
+pip install <package>
+pip show <package> : details about the package, including version, location
 pip list
 pip uninstall <package>
 pip list --outdated | pip list -o : returns outdated package versions; good for keeping tab if our packages are up-to-date
