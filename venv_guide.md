@@ -13,6 +13,11 @@ os.path.dirname(sys.executable) : python interpreter location
 virtualenv -p /usr/bin/python3.9 py39_env : creates a venv with specified python version
 source py39_env/bin/activate
 
+# to add your own directory path to the python module environment paths
+# this allows us to have our modules in a seperate directoy and let python know to check this directory while importing modules
+nano ~/.bash_profile
+export PYTHONPATH='/Users/my_modules'
+  
 # python virtualenv setup (this is the path where the python environment and code will reside.
 # make sure the folders are created after adding them here.)
 export WORKON_HOME=~/Python/.envs
