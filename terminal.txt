@@ -1,0 +1,62 @@
+man <command> : man touch
+pwd : present working dir
+ls : list
+cd : change dir
+cd : home
+cd ~ : home
+cd ~/dir1
+cd ..
+cd ../..
+
+la -a : all incl. hidden
+ls -l : long incl, permissions size date etc
+ls -la: long + all
+ls sub-dir1/sub-dir2
+
+. : current dir
+.. : parent dir
+
+mkdir dir
+
+touch file.txt
+
+open file.txt : open with default text editor
+
+cp file.txt copy_file.txt : copy file as copy_file
+
+mv file.txt renamed_file.txt : rename file as renamed
+mv file.txt dir/ : move file to dir
+mv file.txt dir/renamed_file.txt : move and rename
+mv dir dir_copy : rename dir to dir_copy
+mv dir/ dir_copy/ : moves dir and contents to dir_copy
+mv dir/ ../dir_renamed : move and rename
+
+rm file.txt
+rm -R dir_copy/ : remove dir_copy directory
+rm -rf dir_copy_copy/ : remove dir + force remove
+
+cp dir1/ dir_copy/ : throws an error that copy_dir doesnt exist, so run below command
+mkdir dir_copy
+cp dir1/ dir_copy/ : throws dir_copy is a dir, use below command
+cp -R dir1/ dir_copy/ : works, copies dir + subdirs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
