@@ -165,7 +165,29 @@ sudo crontab -l : root cronjobs
 
 crontab -r : remove / clear all cronjobs
 
+# on mac
 
+https://brew.sh : go to the website and copy paste the command for installation
+
+brew help
+brew search : list all packages available on brew
+brew search | wc -l : count the list
+brew search <package> : search if package in brew availability
+brew install <package>
+brew info <package>
+brew list : list brew packages installed
+brew update : fetch newest version of all packages
+brew outdated : list all outdated packages installed
+brew upgrade : upgrade packages
+brew cleanup : uninstall older versions of packages, by default brew does not uninstall older versions
+brew doctor : diagnose system
+
+brew cask <package> : install 3rd party / dependency softwares, ex: firefox, discord, gimp etc
+brew cask home <package> : homepage of the package
+
+brew tap <same_package>/brew : if the package is not available by brew search, go to the package repository and use their link, to tap to brew
+brew search <same_package> : now the package should show up
+brew install <same_package>
 
 
 
