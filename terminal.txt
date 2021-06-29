@@ -62,10 +62,19 @@ find . -perm 777 : all files / dir with permission 777
 find test_dir -exec chown : in the dir 'test_dir' execute command chown
 find . -type f -name "*.jpg* -maxdepth 1 -exec rm {} + : in current dir, find all files that have .jpg extension, check this only for 1 level deep, which is current dir, 2 level deep is current + subdir, then execute the command rm / delete these files, {} is just a placeholder
 
-
-
-
-
+grep : global regular expression print : search text within files in our system
+grep "some text to search" file.txt : in the file.txt search for "some text to search"
+grep -w "text" file.txt : search exact "text", whole words, case sensitive
+grep -wi "text" file.txt : case insensitive
+grep -win "text" file.txt : line number
+grep -win -B 3 "text" file.txt : 3 lines before the match
+grep -win -A 3 "text" file.txt : 3 lines after the match
+grep -win -C 3 "text" file.txt : 3 lines before and after the match, context
+grep -win "text" ./* : search text in current dir
+grep -win "text" ./*.txt : search text in current dir in all txt files
+grep -winr "text" . : search text in current dir, as recursive
+grep -wirl "text" . : search text and list files that containt text
+grep -wirc "text" . : search text and return count within files
 
 
 
