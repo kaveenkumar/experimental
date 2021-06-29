@@ -40,6 +40,28 @@ mkdir dir_copy
 cp dir1/ dir_copy/ : throws dir_copy is a dir, use below command
 cp -R dir1/ dir_copy/ : works, copies dir + subdirs
 
+find . : all files and folders in current dir
+find dir/ : all files and folders within this dir
+find . -type d : all directories in current dir
+find . -type f : all files in current dir
+find . -type f -name file.txt : search for file.txt in current dir
+find . -type f .name "abc*" : all files starting with abc, case sensitive
+find . -type f .iname "abc*" : all files starting with abc, case insensitive
+find . -type f .name "*.txt" : all files of .txt
+find . -type f -mmin -10 : all files modified less than last 10 minutes
+find . -type f -mmin +10 : all files modified more than last 10 minutes
+find . -type f -mmin +1 -mmin -5 : all files modified more 1 minute less than 5 minutes ago
+find . -type f -mtime -20 : all files modified less than 20 days ago
+find . -type f -atime -20 : all files accessed less than 20 days ago
+find . -type f -ctime -20 : all files changed less than 20 days ago
+find . -size +5M : all files greater than 5MB
+find . -size +5k : all files greater than 5kB
+find . -size +5G : all files greater than 5GB
+find . -empty : all empty files, having no data
+find . -perm 777 : all files / dir with permission 777
+find test_dir -exec chown : in the dir 'test_dir' execute command chown
+find . -type f -name "*.jpg* -maxdepth 1 -exec rm {} + : in current dir, find all files that have .jpg extension, check this only for 1 level deep, which is current dir, 2 level deep is current + subdir, then execute the command rm / delete these files, {} is just a placeholder
+
 
 
 
