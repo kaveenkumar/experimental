@@ -14,10 +14,31 @@ cd ~/dir1
 cd ..
 cd ../..
 
+# ssh
+
+ssh-keygen -t rsa -b 4096 : generate a ssh key; type, bits
+cd ~/.ssh : located at
+scp ~/.ssh/id_rsa.pub kaveen@192.168.0.100:~/.ssh/kaveen_pvt_key.pub : copy local to remote, method 1
+ssh-copy-id kaveen@192.168.0.100 : copy ssh key from local to remote, method 2
+
+# aliases
+
+alias : to show all existing aliases
+
+cd
+nano .bash_profile
+
+alias dt='cd ~/Desktop/' # alias keyword='command'; switch to desktop alias
+
+alias someshortcut='command 1;
+                    command 2;
+                    command 3;'
+
 la -a : all incl. hidden
 ls -l : long incl, permissions size date etc
 ls -la: long + all
 ls sub-dir1/sub-dir2
+ls /mnt/ : for accessing mounted devices, especially on windows - ubuntu WSL
 
 . : current dir
 .. : parent dir
@@ -30,8 +51,6 @@ cat file.txt
 
 open file.txt : open with default text editor
 
-cp file.txt copy_file.txt : copy file as copy_file
-
 mv file.txt renamed_file.txt : rename file as renamed
 mv file.txt dir/ : move file to dir
 mv file.txt dir/renamed_file.txt : move and rename
@@ -43,6 +62,7 @@ rm file.txt
 rm -R dir_copy/ : remove dir_copy directory
 rm -rf dir_copy_copy/ : remove dir + force remove
 
+cp file.txt copy_file.txt : copy file as copy_file; renaming
 cp dir1/ dir_copy/ : throws an error that copy_dir doesnt exist, so run below command
 mkdir dir_copy
 cp dir1/ dir_copy/ : throws dir_copy is a dir, use below command
@@ -188,18 +208,3 @@ brew cask home <package> : homepage of the package
 brew tap <same_package>/brew : if the package is not available by brew search, go to the package repository and use their link, to tap to brew
 brew search <same_package> : now the package should show up
 brew install <same_package>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
