@@ -76,6 +76,29 @@ grep -winr "text" . : search text in current dir, as recursive
 grep -wirl "text" . : search text and list files that containt text
 grep -wirc "text" . : search text and return count within files
 
+history : prints history including git commits
+history | grep "git commit" : show all git commits
+history | grep "git commit" | grep "dotfile"
+grep "...-...-...." : for phone numbers
+grep -P "\d{3}-\d{3}-\d{4}" file.txt
+
+cURL query URLs
+curl http://web.com : returns html response as text
+curl -i http://web.com : with info
+curl -d "first=fname&last=lname" http://web.com : post request with data
+curl -x PUT -d "first=fname&last=lname" http://web.com : put request with data
+curl -x DELETE http://web.com : delete request
+curl -u <username>:<password> http://web.com : send username and password
+curl -o image.jpg http://web.com : download image, output
+curl -o content.json http://web.com : output as json
+
+rsync send recieve files, sync local to remote
+
+
+
+
+
+
 
 
 
