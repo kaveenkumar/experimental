@@ -1,4 +1,4 @@
-man <command> : man touch
+man <command> : manual book, ex: man touch
 pwd : present working dir
 ls : list
 cd : change dir
@@ -82,7 +82,7 @@ history | grep "git commit" | grep "dotfile"
 grep "...-...-...." : for phone numbers
 grep -P "\d{3}-\d{3}-\d{4}" file.txt
 
-cURL query URLs
+cURL : query URLs
 curl http://web.com : returns html response as text
 curl -i http://web.com : with info
 curl -d "first=fname&last=lname" http://web.com : post request with data
@@ -92,25 +92,67 @@ curl -u <username>:<password> http://web.com : send username and password
 curl -o image.jpg http://web.com : download image, output
 curl -o content.json http://web.com : output as json
 
-rsync send recieve files, sync local to remote
+rsync : send recieve files, sync local to remote
+rsync source_dir/* dest_dir/ : copy contents from source dir to dest dir, does not copy / sync folders within source
+rsync -r source_dir/ dest_dir/ : recursive, copies folders too, no need *
+rsync -r source_dir dest_dir/ : copy / sync source_dir itself, copies source_dir to inside dest_dir
+rsync -a : archive, copy / sync permissions, user groups, modified times etc along with actual files
+rsync -a --dry-run source_dir/ dest_dir/ : dryrun is for info about what files would be copied, does not copy actual data
+rsync -av --dry-run source_dir/ dest_dir/ : dryrun by default does not display the info about files that would be copied, hence use verbose
+rsync -av source_dir/ dest_dir/ : without dryrun, the files are actually copied, verbose for info about files copied
+rsync -av --delete --dry-run source_dir/ dest_dir/ : shows what files would be copied from source to dest, also shows what files would be deleted in the dest_dir that does not exist in source_dir
+rsync -zaP source_dir kaveen@192.168.0.100:~/dest_dir/ : z for zip compress, a for archive, P for progress; copies source_dir folder to remote machine
+rsync -zaP kaveen@192.168.0.100:~/source_dir ~/dest_dir : remtoe to local
 
+cron : schedule tasks using cron utility; for automated backups, rotating log files, 
+crontab -l : list existing cron jobs
+crontab -e : editor mode, for changing or adding jobs
 
+# ┌───────────── minute (0 - 59)
+# │ ┌───────────── hour (0 - 23)
+# │ │ ┌───────────── day of month (1 - 31)
+# │ │ │ ┌───────────── month (1 - 12)
+# │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday to Saturday;
+# │ │ │ │ │                                       7 is also Sunday on some systems)
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * *  command_to_execute
 
+* * * * * echo 'Hello' >> /tmp/test.txt : write this inside the crontab editor, to set a job
 
+crontab -l : list existing cron jobs
+cat /tmp/test.txt : check if the job is running; 'Hello' should be printed, every min of every hour of every day of every month of every weekday
 
+30 * * * * <command> : run the command every 30th minute, if time is 10:10, the first job runs at 10:30 then 11:30 then 12:30 ...
 
+30 5 * *  * <command> : 5th hour + 30th minute of every single day, 05:30 every single day
 
+30 5 1 * * : 05:30 on 1st of every month, typically once a month
 
+30 5 1 1 * : once a year
 
+0 0 * * 1 : every monday
 
+0 0 1,15 * * : use comma for multiple values, 1st and 15th of every month
 
+*/10 * * * * : every 10th minute of every day every hour ... same as writing 1,10,20,30 ...
 
+0 0 */3 * * : every 3 days
 
+0 0-5 * * * : use dash for range, every hour between 0 to 5
 
+*/30 9-17 * * 1-5 : every 30 mins 9 am to 5 pm monday to friday
 
+###### Sample crontab ######
 
+# Empty temp folder every Friday at 5pm
+0 5 * * 5 rm -rf /tmp/*
 
+# Backup images to Google Drive every night at midnight
+0 0 * * * rsync -a ~/Pictures/ ~/Google\ Drive/Pictures/
 
+crontab -u user2 -e : edit user2 crontab
 
+sudo crontab -l : root cronjobs
 
-
+crontab -r : remove / clear all cronjobs
