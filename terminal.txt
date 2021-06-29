@@ -100,7 +100,17 @@ curl -u <username>:<password> http://web.com : send username and password
 curl -o image.jpg http://web.com : download image, output
 curl -o content.json http://web.com : output as json
 
-
+rsync : send recieve files, sync local to remote
+rsync source_dir/* dest_dir/ : copy contents from source dir to dest dir, does not copy / sync folders within source
+rsync -r source_dir/ dest_dir/ : recursive, copies folders too, no need *
+rsync -r source_dir dest_dir/ : copy / sync source_dir itself, copies source_dir to inside dest_dir
+rsync -a : archive, copy / sync permissions, user groups, modified times etc along with actual files
+rsync -a --dry-run source_dir/ dest_dir/ : dryrun is for info about what files would be copied, does not copy actual data
+rsync -av --dry-run source_dir/ dest_dir/ : dryrun by default does not display the info about files that would be copied, hence use verbose
+rsync -av source_dir/ dest_dir/ : without dryrun, the files are actually copied, verbose for info about files copied
+rsync -av --delete --dry-run source_dir/ dest_dir/ : shows what files would be copied from source to dest, also shows what files would be deleted in the dest_dir that does not exist in source_dir
+rsync -zaP source_dir kaveen@192.168.0.100:~/dest_dir/ : z for zip compress, a for archive, P for progress; copies source_dir folder to remote machine
+rsync -zaP kaveen@192.168.0.100:~/source_dir ~/dest_dir : remtoe to local
 
 
 
