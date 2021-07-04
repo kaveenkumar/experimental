@@ -1,3 +1,12 @@
 dir(object)  # attributes and methods
 help(object)  # info
 id(object)  # memory address
+
+# class guide
+class Dummy:
+  pass
+  
+d = Dummy()
+
+print(Dummy.__dict__)  # print Dummy class attributes and methods, whole class accessed
+print(d.__dict__)  # print d object attributes and methods, only instance accessed
