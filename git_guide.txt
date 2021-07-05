@@ -86,6 +86,7 @@ git show HEAD~2 : last 3rd commit
 git diff HEAD~2 HEAD~1 : compare changes between older commit head vs newer commit head
 
 git rebase master : when run from a branch, this takes all the latest commits from master that are not in the branch, adds these commits, and on top adds your branch commits
+git pull --rebase origin master
 
 git remote add upstream git@gitlab.com:bragi-rnd/sds/ml-pipeline/<repo-name>.git
 
