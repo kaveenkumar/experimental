@@ -10,3 +10,5 @@ d = Dummy()
 
 print(Dummy.__dict__)  # print Dummy class attributes and methods, whole class accessed
 print(d.__dict__)  # print d object attributes and methods, only instance accessed
+
+import sys; sys.exit()  # stops execution of py code at this point and discards the following code
