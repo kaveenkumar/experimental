@@ -12,3 +12,7 @@ print(Dummy.__dict__)  # print Dummy class attributes and methods, whole class a
 print(d.__dict__)  # print d object attributes and methods, only instance accessed
 
 import sys; sys.exit()  # stops execution of py code at this point and discards the following code
+
+print(np.finfo(float).eps)  # eps 2.22044604925e-16 is the minimun value that we can use in python
+print(np.finfo(np.float32).eps)  # eps of float32 precision
+print(np.finfo(np.float64).eps)  # eps of float64 precision
