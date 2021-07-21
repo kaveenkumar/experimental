@@ -1,0 +1,3 @@
+conda create -n <venv name>  # create a virtual environment
+conda create -n <venv name> python=3.8  # create venv with specific python version
+conda activate <venv name>  # activate venv
