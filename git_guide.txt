@@ -52,6 +52,7 @@ git push -u origin new_branch : tells git to associate new_branch of local and r
 git merge new_branch : merges new_branch to master; remember to run this command from master
 git push origin --delete new_branch : delete branch from remote repo
 git push --set-upstream origin new_branch : if new_branch does not exist on remote, this creates and pushes to it
+git push -u ""https://gitlab.com/user/project.git" master : push to https url master branch
 
 git stash : to delete uncommited changes; also called moving changes to stash
 git stash save "message" : removes uncommited changes and saves them in a temporary stash
