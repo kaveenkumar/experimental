@@ -10,6 +10,30 @@ Different translation providers available:
 
 from translate import Translator
 
+
+class TextTranslator:
+    """custom translator api"""
+
+    def __init__(self, src_lang='autodetect', dst_lang='en', provider='mymemory', key=None, base_url=None):
+        self.source_language = src_lang
+        self.destination_language = dst_lang
+        self.translate_provider = provider
+        self.secret_access_key = key
+        self.base_url = base_url
+
+    def translate(self, source_text):
+        """method that translates given text"""
+
+        translator = Translator(from_lang=self.source_language,
+                                to_lang=self.destination_language,
+                                provider=self.translate_provider,
+                                secret_access_key=self.secret_access_key,
+                                base_url=self.base_url)
+
+        destination_text = translator.translate(source_text)
+        return destination_text
+
+
 def main():
     """main function for translation"""
     source_text = "Guten Morgen"  # input text to be translated
@@ -22,7 +46,7 @@ def main():
     destination_text = translator.translate(source_text)
 
     print(destination_text)
-    
+
 
 if __name__ == '__main__':
     main()
