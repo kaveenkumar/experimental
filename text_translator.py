@@ -7,3 +7,8 @@ Different translation providers available:
     'deepl': DeeplProvider,
     'libre': LibreProvider,
 """
+
+from translate import Translator
+
+if __name__ == '__main__':
+    main()
