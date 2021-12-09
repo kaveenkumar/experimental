@@ -1,4 +1,8 @@
 import datetime
+import pytz
+
+# Naive
+# d = datetime.date(2001, 9, 11)
 
 tday = datetime.date.today()
 
