@@ -24,3 +24,25 @@ bday = datetime.date(2016, 9, 24)
 till_bday = bday - tday
 
 # print(till_bday.days)
+
+t = datetime.time(9, 30, 45, 100000)
+
+# dt = datetime.datetime.today()
+# dtnow = datetime.datetime.now()
+# print(dir(datetime.datetime))
+# print(dt)
+# print(dtnow)
+
+dt = datetime.datetime(2016, 7, 24, 12, 30, 45, tzinfo=pytz.UTC)
+# print(dir(dt))
+
+dt_utcnow = datetime.datetime.now(tz=pytz.UTC)
+# print(dt_utcnow)
+
+dt_utcnow2 = datetime.datetime.utcnow().replace(tzinfo=pytz.UTC)
+# print(dt_utcnow2)
+
+# dt_mtn = dt_utcnow.astimezone(pytz.timezone('US/Mountain'))
+# print(dt_mtn)
+
+dt_mtn = datetime.datetime.now()
