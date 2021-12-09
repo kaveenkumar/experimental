@@ -46,3 +46,17 @@ dt_utcnow2 = datetime.datetime.utcnow().replace(tzinfo=pytz.UTC)
 # print(dt_mtn)
 
 dt_mtn = datetime.datetime.now()
+
+mtn_tz = pytz.timezone('US/Mountain')
+dt_mtn = mtn_tz.localize(dt_mtn)
+
+# print(dt_mtn)
+
+dt_east = dt_mtn.astimezone(pytz.timezone('US/Eastern'))
+# print(dt_east)
+
+print(dt_mtn.strftime('%B %d, %Y'))
+
+dt_str = 'July 24, 2016'
+dt = datetime.datetime.strptime(dt_str, '%B %d, %Y')
+print(dt)
