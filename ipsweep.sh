@@ -12,3 +12,4 @@ done
 # ampersand for threading instead of 1 by 1
 
 # run with `./ipsweep.sh 192.168.1
+# before running enable execute permission with `chmod +x ipsweep.sh`
