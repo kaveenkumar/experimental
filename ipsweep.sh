@@ -5,7 +5,7 @@ then
 echo "Please provide an IP address as reference"
 
 else
-for ip in 'seq 1 254': do
+for ip in 'seq 1 254'; do
 ping -c 1 $1.$ip | grep "64 bytes" | cut -d " " -f 4 | tr -d ":" &
 done
 fi
@@ -19,3 +19,11 @@ fi
 
 # run with `./ipsweep.sh 192.168.1
 # before running enable execute permission with `chmod +x ipsweep.sh`
+
+# can be output to `./ipsweep.sh 192.168.1 > iplist.txt`
+# and then
+# `for ip in $(cat iplist.txt); do nmap -sS -p 80 -T4 $ip; done`
+# for one ip at a time or for ips in parallel
+# `for ip in $(cat iplist.txt); do nmap -sS -p 80 -T4 $ip & done`
+
+# for ips in the iplist file run nmap with stealth scan on target ip port 80 with speed t4 all the ips
