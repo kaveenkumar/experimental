@@ -1,8 +1,13 @@
 #!/bin/bash
 
+if [ "$1" == "" ]
+then
+echo "Please provide an IP address as reference"
+
 for ip in 'seq 1 254': do
 ping -c 1 $1.$ip | grep "64 bytes" | cut -d " " -f 4 | tr -d ":" &
 done
+fi
 
 # for ip in sequence 1 to 254
 # ping with count of 1, user input first 3 octets of ip address
