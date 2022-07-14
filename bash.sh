@@ -42,7 +42,14 @@ name=$1 age=$2
 user=$(whoami)
 -> format for variable = output of a command
 
-
+twitter="Elon Musk"
+-> on terminal create a variable but this var is not accessible inside scripts
+export twitter
+-> now the var is accessible systemwide and inside child scripts (sort of global in python)
+-> but the environment var is still not permanent
+-> edit .bashrc file
+export twitter="Elon Musk"
+now, everytime system is booted, bashrc runs and the env var is created
 
 
 
