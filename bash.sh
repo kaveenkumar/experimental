@@ -30,7 +30,7 @@ echo "Hello $name"
 
 echo "What is your name?"
 read name
--> allows argument passing via terminal (similar to input() in python)
+-> allows argument passing via terminal (similar to input() in python) and store it in name
 echo "Hello $name"
 
 name=$1
@@ -41,6 +41,7 @@ name=$1 age=$2
 
 user=$(whoami)
 -> format for variable = output of a command
+
 
 twitter="Elon Musk"
 -> on terminal create a variable but this var is not accessible inside scripts
@@ -67,11 +68,69 @@ echo $(( $RANDOM % 20 ))
 -> 0 - 20
 
 
+echo "Do you like coffee? (y/n)"
+read coffee
+if [[ $coffee == "y" ]]; then
+  echo "blah"
+else
+  echo "blah blah"
+fi
 
 
+echo "Do you like coffee? (y/n)"
+read coffee
+if [[ $coffee == "y" ]]; then
+  echo "blah"
+else
+  echo "blah blah"
+  exit 1
+  -> exits the script
+fi
 
 
+if [[ cond 1 || cond 2 ]]; then
+-> OR condition
+
+if [[ cond 1 && cond 2 ]]; then
+-> AND condition
+
+if [[ outer cond ]]; then
+  if [[ inner cond ]]; then
+    echo "inner"
+  fi
+fi
 
 
+if [[ cond ]]; then
+  echo "cond 1"
+elif [[ cond 2 ]]; then
+  echo "cond 2"
+fi
 
 
+echo "Welcome tarnished to Elden ring, Please select your starting class:
+1 - Samurai
+2 - Prisoner
+3 - Prophet"
+
+read class
+
+case $class in
+  1)
+    type="Samurai"
+    hp=10
+    attack=20
+    ;;
+  2)
+    type="Prisoner"
+    hp=20
+    attack=8
+    ;;
+  3)
+    type="Prophet"
+    hp=30
+    attack=4
+    ;;
+esac
+
+echo "You have chosen $type class. Your HP is $hp etc."
