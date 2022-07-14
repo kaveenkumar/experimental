@@ -52,6 +52,20 @@ export twitter="Elon Musk"
 now, everytime system is booted, bashrc runs and the env var is created
 
 
+echo $RANDOM
+-> generate a random number 0-32767
+
+echo $(())
+-> the inside paranthesis indicates math operation 
+
+echo $((2 + 3))
+
+echo $(( $RANDOM % 10 ))
+-> mod of 0-32k / 10; output is always between 0-9
+
+echo $(( $RANDOM % 20 ))
+-> 0 - 20
+
 
 
 
